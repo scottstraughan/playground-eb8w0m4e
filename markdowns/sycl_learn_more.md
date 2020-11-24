@@ -19,5 +19,5 @@ There are a growing number of Frameworks that are accelerated using SYCL. Some o
 
  * [SYCL-DNN](https://github.com/codeplaysoftware/SYCL-DNN)          A project offering operations for convolutions that can be used to build machine learning applications
  * [SYCL-BLAS](https://github.com/codeplaysoftware/sycl-blas)         A project offering BLAS operations
- * [Eigen](https://github.com/codeplaysoftware/sycl-blas)             A C++ linear algebra library using SYCL for tensor operations
+ * [Eigen](https://gitlab.com/libeigen/eigen)             A C++ linear algebra library using SYCL for tensor operations
  * [SYCL Parallel STL](https://github.com/KhronosGroup/SyclParallelSTL) A project that implements ParallelSTL using SYCL
