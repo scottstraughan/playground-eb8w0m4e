@@ -49,7 +49,7 @@ enum class mode {
   read,
   write, 
   read_write, 
-  discard_wirte, 
+  discard_write, 
   discard_read_write,
   atomic
 };

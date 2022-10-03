@@ -19,5 +19,5 @@ Now that you've finished this first tutorial, test ourself on what you have lear
 
 ?[What is a SYCL accessor?]
 -[x] It enables reading and writing to the SYCL host and device memory
--[ ] It is used manage access to a kernel
+-[ ] It is used to manage access to a kernel
 -[ ] It allows access to a device

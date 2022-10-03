@@ -80,9 +80,11 @@ Lastly, write a single number which is the result of this work-group's reduction
 
 ### Write Group Result To Global Memory
 
+```
   if (local_id == 0) {
     global_mem[item.get_group_linear_id()] = local_mem[0];
   }
+```
 
 And the result is obtained if you press the "Run" button below:
 

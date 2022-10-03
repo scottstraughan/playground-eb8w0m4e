@@ -2,7 +2,7 @@
 
 `auto n_wgroups = (len + part_size - 1) / part_size;`
 
-Inside the reduction loop, we first find the number of work-groups for this step of reduction. It is the length len left to be reduced divided by the number of elements that each work-group reduces.
+Inside the reduction loop, we first find the number of work-groups for this step of reduction. It is the length (len) left to be reduced divided by the number of elements that each work-group reduces.
 
 `sycl::accessor<int32_t, 1, sycl::access::mode::read_write, sycl::access::target::local> local_mem(sycl::range<1>(wgroup_size)`
 
@@ -12,7 +12,7 @@ You might wonder, why do we even bother with using local memory when we could ca
 
 `auto global_mem = buf.get_access<sycl::access::mode::read_write>(cgh);`
 
-We also obtain an accessor to the data available in global memory. This time get_access is explicitly qualified with access::target::global_buffer, while previously it took on that value by default.
+We also obtain an accessor to the data available in global memory. This time get_access is implicitly qualified with access::target::global_buffer [Link](https://sycl.readthedocs.io/en/latest/iface/buffer.html#get-access).
 
 ```
 cgh.parallel_for<class reduction_kernel>(
