@@ -8,13 +8,13 @@ Asynchronous errors, on the other hand, are those that describe faults in asynch
 
 ## Creating an Exception Handler
 
-The handler is a function object that accepts an exception_list [link] parameter. The parameter is an iterable list of std::exception_ptr objects. In our simple handler, we rethrow the pointer (there is no way to read from it directly), catch it, and output the exception description.
+The handler is a function object that accepts an exception_list [link](https://sycl.readthedocs.io/en/latest/iface/exception.html#sycl-exception-list) parameter. The parameter is an iterable list of std::exception_ptr objects. In our simple handler, we rethrow the pointer (there is no way to read from it directly), catch it, and output the exception description.
 
 `auto exception_handler = [] (sycl::exception_list exceptions) {`
 
 ## Execute With Wrong Parameters
 
-We setup a default queue and supply it with an invalid kernel. The reason why this code is erroneous is unimportant for now (it has to do with work-group sizes). Finally, we call queue::wait_and_throw [link]. This function blocks and waits for all enqueued tasks to finish. Then, it sends all asynchronous exceptions to our handler. Additionally, it is possible, but very unlikely, for it to directly throw a synchronous exception. For completeness, we also catch these.
+We setup a default queue and supply it with an invalid kernel. The reason why this code is erroneous is unimportant for now (it has to do with work-group sizes). Finally, we call queue::wait_and_throw [link](https://sycl.readthedocs.io/en/latest/iface/queue.html#wait-and-throw). This function blocks and waits for all enqueued tasks to finish. Then, it sends all asynchronous exceptions to our handler. Additionally, it is possible, but very unlikely, for it to directly throw a synchronous exception. For completeness, we also catch these.
 
 ```
 queue.submit([&] (sycl::handler& cgh) {
