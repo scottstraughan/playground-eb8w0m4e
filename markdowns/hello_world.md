@@ -22,13 +22,13 @@ sycl::float4 c = { 0.0, 0.0, 0.0, 0.0 };
 
 In SYCL there are different ways to configure and select the devices we want to use. SYCL provides a default selector that tries to select the most appropriate device in your system. It's possible to use a custom selector but since we only have one device we use the default selector.
 
-`cl::sycl::default_selector selector;`
+`cl::sycl::default_selector device_selector;`
 
 ## Setting up a SYCL Queue
 
 In order to send our tasks to be scheduled and executed on the target device we need to use a SYCL queue. We set this up and pass it our selector so that it knows what device to select when running the tasks.
 
-`cl::sycl::queue myQueue(selector);`
+`cl::sycl::queue myQueue(device_selector);`
 
 ## Setup Device Storage
 
